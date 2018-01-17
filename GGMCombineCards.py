@@ -73,7 +73,7 @@ for line in fdiphoton:
 			if p is not '' and "T5GG" not in p:
 				BackgroundPredictionsDiphoton.append(float(p));
 searchbin=0;
-listOfBkgs=['qcdfakefake','elefakepho','Zgammagamma','jetfakepho','qcdfakelep','Vgamma','rareSnglPho',]
+listOfBkgs=['qcdfakefake','elefakepho','Zgammagamma','jetfakepho','qcdfakelep','Vgamma','rareSnglPho']
 dictBkgPredictions={}
 for i in range(len(BackgroundPredictionsDiphoton)):
 	if i%3==0:
