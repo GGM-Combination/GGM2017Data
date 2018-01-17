@@ -114,7 +114,6 @@ for i in range(len(observationsHTgammabinned)):
 	binlabels.append("HTgammaBin%d" %i);
 searchbincount=0;
 for b in binlabels:
-	print searchbincount
 	fcardOut=open("GGMCombinationTemplateBin_%s.txt" %b, 'w');
 	fcardOut.write("imax 1 number of channels \n" )
 	fcardOut.write("jmax %d number of backgrounds\n" %(len(listOfBkgs)));
@@ -148,15 +147,15 @@ for b in binlabels:
 	fcardOut.write("rate GGMSig ")# will replace this by reading signal histos
 	#print dictBkgPredictions[searchbincount]
         fcardOut.write(dictBkgPredictions[searchbincount]);
-	fcardOut.close()
+	#NOW NUISANCES:
 	searchbincount=searchbincount+1
+	
+	fcardOut.close()
 	
 #Fill Signal Model : 
 testPath=os.getcwd()+"/T5WgTestCards"
 if not os.path.isdir(testPath):os.mkdir(testPath);
-##HERE YOU WOULD Fill the signal in the diphoton region
 
-##HERE YOU FILL SIGNAL MODELS FOR the Photon+Lepton region
 for i in range(len(observationsDiphoton)):
 	T5WgSignalLeptonMap=SingleLeptonSignal.Get("h_chan%d_rate_nom" %(i+1));
 	if not os.path.isdir(testPath):os.mkdir(testPath);
@@ -254,5 +253,4 @@ for i in range(len(observationsHTgammabinned)):
 			os.system(" combineCards.py %s/*.txt >%s/GGMCombination_M1_%d_M2_%d.txt " %(SignalPath,testPath, M1, M2))
 			
 			#print i,M1,M2,SignalYield
-#NOW NUISANCES:
 
