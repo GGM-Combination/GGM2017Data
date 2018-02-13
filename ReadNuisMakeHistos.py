@@ -167,7 +167,8 @@ for line in fSTbin:
 			if "lnN" not in p and '\n' not in p and  p is not '':
 				JetPhotonFakeSystST.append(p);
 	if "syst_efake" in line:
-		line=line.replace(" ",'')		
+		line=line.replace(" ",'')
+		line=line.replace("\n",'-')		
 		parse=line.split("-")
 		print parse
 		for p in parse:
@@ -189,6 +190,7 @@ for line in fSTbin:
                                 tgStat.append(p);
 	if "efake" in line and "stat" in line:
                 line=line.replace(" ",'')
+		line=line.replace("\n",'-')
                 parse=line.split("-")
                 print parse
                 for p in parse:
